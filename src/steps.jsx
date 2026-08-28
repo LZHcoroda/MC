@@ -19,7 +19,7 @@ export const steps = [
           gif={helloGif}
           alt="Dudu the bear waving hello with a rose"
         />
-        <p className="kicker">hey you zhu 👀</p>
+        <p className="kicker">hey you zhu 🐷</p>
         <h1 className="headline">Hello Mindy!</h1>
         <p className="subhead">Swipe right (or tap Next) — I made you something!</p>
       </>
@@ -47,7 +47,7 @@ export const steps = [
           gif={waterGif}
           alt="Bubu the panda chugging a bottle of water"
         />
-        <h1 className="headline">Have you drank enough water!?!?</h1>
+        <h1 className="headline">Have you drank enough water!?!? 👀 👀</h1>
       </>
     ),
   },
