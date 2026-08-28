@@ -45,6 +45,10 @@
 .stepper__card {
   width: 100%;
   max-width: 420px;
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: var(--white);
   border-radius: 28px;
   padding: 40px 28px;
