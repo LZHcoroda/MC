@@ -76,6 +76,15 @@
   touch-action: none;
 }
 
+.finale__clip {
+  display: block;
+  width: 170px;
+  height: auto;
+  margin: 0 auto 14px;
+  border-radius: 20px;
+  mix-blend-mode: multiply;
+}
+
 .finale__big {
   font-size: clamp(2.4rem, 12vw, 3.4rem);
   font-weight: 800;
