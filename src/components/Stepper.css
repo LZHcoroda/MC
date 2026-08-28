@@ -1,10 +1,38 @@
 .stepper {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: max(env(safe-area-inset-top), 20px) 22px
     max(env(safe-area-inset-bottom), 20px);
   touch-action: pan-y;
+}
+
+.stepper__restart {
+  position: absolute;
+  top: max(env(safe-area-inset-top), 14px);
+  left: 14px;
+  z-index: 2;
+  border: none;
+  background: transparent;
+  padding: 8px 10px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--pink-accent-dark);
+  opacity: 0.75;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.12s ease;
+}
+
+.stepper__restart:active {
+  transform: scale(0.94);
+}
+
+@media (hover: hover) {
+  .stepper__restart:hover {
+    opacity: 1;
+  }
 }
 
 .stepper__stage {
@@ -36,13 +64,13 @@
   }
 }
 
-.dudu {
+.clip {
   display: block;
   width: 170px;
   height: auto;
   margin: 0 auto 14px;
   border-radius: 24px;
-  /* the clip has a near-white backdrop; multiply drops it onto the card */
+  /* the clips have a near-white backdrop; multiply drops it onto the card */
   mix-blend-mode: multiply;
 }
 
@@ -64,6 +92,16 @@
   font-size: 1.05rem;
   line-height: 1.5;
   color: var(--ink);
+}
+
+.quote {
+  margin-top: 8px;
+  font-size: clamp(1.4rem, 6.5vw, 1.9rem);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--pink-accent-dark);
+  text-wrap: balance;
 }
 
 .stepper__controls {

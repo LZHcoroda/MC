@@ -8,9 +8,11 @@ export default function Stepper() {
   const [index, setIndex] = useState(0);
   const touchStart = useRef(null);
 
+  const isFirst = index === 0;
   const isLast = index === steps.length - 1;
 
   const goNext = () => setIndex((i) => Math.min(i + 1, steps.length - 1));
+  const restart = () => setIndex(0);
 
   const onTouchStart = (e) => {
     touchStart.current = e.touches[0].clientX;
@@ -31,6 +33,16 @@ export default function Stepper() {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
+      {!isFirst && (
+        <button
+          className="stepper__restart"
+          onClick={restart}
+          aria-label="Restart from the beginning"
+        >
+          ↺ Restart
+        </button>
+      )}
+
       <div className="stepper__stage">
         <div className="stepper__card" key={step.id}>
           {step.content}
