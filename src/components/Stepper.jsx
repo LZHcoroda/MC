@@ -75,14 +75,15 @@ export default function Stepper() {
       </div>
 
       <div className="stepper__controls">
-        <div className="stepper__dots" role="tablist" aria-label="Progress">
+        {/* hide stepper, commented out */}
+        {/* <div className="stepper__dots" role="tablist" aria-label="Progress">
           {steps.map((s, i) => (
             <span
               key={s.id}
               className={`stepper__dot ${i === index ? "is-active" : ""}`}
             />
           ))}
-        </div>
+        </div> */}
 
         <button
           className="stepper__btn"
