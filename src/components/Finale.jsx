@@ -61,9 +61,8 @@ export default function Finale() {
         />
         <p className="finale__big">aw… 🥺</p>
         <p className="finale__sub">
-          ok ok — but the offer stays open forever 💗
+          👉🏼👈🏼  
         </p>
-        <p className="finale__hint">(psst… hit Restart and think it over)</p>
       </div>
     );
   }
