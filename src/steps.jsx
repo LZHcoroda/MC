@@ -1,4 +1,5 @@
 import Clip from "./components/Clip.jsx";
+import Pros from "./components/Pros.jsx";
 import helloMp4 from "./assets/hi-waving.mp4";
 import helloGif from "./assets/hi-waving.gif";
 import questionMp4 from "./assets/important-question.mp4";
@@ -43,7 +44,7 @@ export const steps = [
   {
     id: "drink-water",
     gate: {
-      seconds: 10,
+      seconds: 1,
       messages: ["FINISH!!", "EH!? what you mean!?", "Kiddingggg", "Next"],
     },
     content: (
@@ -72,5 +73,10 @@ export const steps = [
         <p className="pledge">instead! I will convince you! 💪</p>
       </>
     ),
+  },
+  {
+    id: "pros",
+    bare: true,
+    content: <Pros />,
   },
 ];

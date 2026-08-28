@@ -69,7 +69,10 @@ export default function Stepper() {
       )}
 
       <div className="stepper__stage">
-        <div className="stepper__card" key={step.id}>
+        <div
+          className={step.bare ? "stepper__bare" : "stepper__card"}
+          key={step.id}
+        >
           {step.content}
         </div>
       </div>
