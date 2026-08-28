@@ -5,6 +5,8 @@ import questionMp4 from "./assets/important-question.mp4";
 import questionGif from "./assets/important-question.gif";
 import waterMp4 from "./assets/drink-water.mp4";
 import waterGif from "./assets/drink-water.gif";
+import convinceMp4 from "./assets/convince-you.mp4";
+import convinceGif from "./assets/convince-you.gif";
 
 // Each entry is one screen of the stepper.
 // Add new steps here as the story grows — the Stepper handles the rest.
@@ -41,7 +43,7 @@ export const steps = [
   {
     id: "drink-water",
     gate: {
-      seconds: 14,
+      seconds: 10,
       messages: ["FINISH!!", "EH!? what you mean!?", "Kiddingggg", "Next"],
     },
     content: (
@@ -52,6 +54,22 @@ export const steps = [
           alt="Bubu the panda chugging a bottle of water"
         />
         <h1 className="headline">Have you drank enough water!?!? 👀 👀</h1>
+      </>
+    ),
+  },
+  {
+    id: "convince-you",
+    content: (
+      <>
+        <h1 className="headline" style={{ marginBottom: 40 }}>
+          But you know what le!!
+        </h1>
+        <Clip
+          mp4={convinceMp4}
+          gif={convinceGif}
+          alt="Dudu the bear crying dramatically in a puddle of tears"
+        />
+        <p className="pledge">instead! I will convince you! 💪</p>
       </>
     ),
   },
