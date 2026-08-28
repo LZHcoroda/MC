@@ -36,6 +36,16 @@
   }
 }
 
+.dudu {
+  display: block;
+  width: 170px;
+  height: auto;
+  margin: 0 auto 14px;
+  border-radius: 24px;
+  /* the clip has a near-white backdrop; multiply drops it onto the card */
+  mix-blend-mode: multiply;
+}
+
 .kicker {
   font-size: 0.95rem;
   letter-spacing: 0.04em;
