@@ -8,6 +8,8 @@ import waterMp4 from "./assets/drink-water.mp4";
 import waterGif from "./assets/drink-water.gif";
 import convinceMp4 from "./assets/convince-you.mp4";
 import convinceGif from "./assets/convince-you.gif";
+import consMp4 from "./assets/cons-huh.mp4";
+import consGif from "./assets/cons-huh.gif";
 
 // Each entry is one screen of the stepper.
 // Add new steps here as the story grows — the Stepper handles the rest.
@@ -78,5 +80,19 @@ export const steps = [
     id: "pros",
     bare: true,
     content: <Pros />,
+  },
+  {
+    id: "cons",
+    content: (
+      <>
+        <h1 className="headline">CONS</h1>
+        <Clip
+          mp4={consMp4}
+          gif={consGif}
+          alt="Dudu the bear shrugging, puzzled"
+        />
+        <p className="punchline">没有!!</p>
+      </>
+    ),
   },
 ];

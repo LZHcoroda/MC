@@ -123,6 +123,31 @@
   text-wrap: balance;
 }
 
+.punchline {
+  margin-top: 10px;
+  font-size: clamp(3.4rem, 18vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--pink-accent-dark);
+  text-shadow: 4px 4px 0 var(--pink-bg-2), 8px 8px 0 rgba(226, 63, 131, 0.16);
+  animation: punchline-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.1s;
+}
+
+@keyframes punchline-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .pledge {
   align-self: center;
   margin-top: 22px;
