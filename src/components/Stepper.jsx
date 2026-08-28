@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { steps } from "../steps.jsx";
 import "./Stepper.css";
 
@@ -8,10 +8,37 @@ export default function Stepper() {
   const [index, setIndex] = useState(0);
   const touchStart = useRef(null);
 
+  const step = steps[index];
   const isFirst = index === 0;
   const isLast = index === steps.length - 1;
 
-  const goNext = () => setIndex((i) => Math.min(i + 1, steps.length - 1));
+  // Optional timed lock: `gate: { seconds, messages: [...] }` cycles the Next
+  // button's copy evenly across `seconds`. The button stays disabled until the
+  // final message is reached, then re-enables showing that last label.
+  const gate = step.gate;
+  const [gateStage, setGateStage] = useState(0);
+
+  useEffect(() => {
+    if (!gate) {
+      setGateStage(0);
+      return;
+    }
+    setGateStage(0);
+    const last = gate.messages.length - 1;
+    const stepMs = (gate.seconds * 1000) / last;
+    const timers = [];
+    for (let i = 1; i <= last; i++) {
+      timers.push(setTimeout(() => setGateStage(i), stepMs * i));
+    }
+    return () => timers.forEach(clearTimeout);
+  }, [index, gate]);
+
+  const gateActive = gate && gateStage < gate.messages.length - 1;
+
+  const goNext = () => {
+    if (gateActive) return;
+    setIndex((i) => Math.min(i + 1, steps.length - 1));
+  };
   const restart = () => setIndex(0);
 
   const onTouchStart = (e) => {
@@ -24,8 +51,6 @@ export default function Stepper() {
     if (delta >= SWIPE_THRESHOLD) goNext(); // swipe right to advance
     touchStart.current = null;
   };
-
-  const step = steps[index];
 
   return (
     <div
@@ -62,10 +87,10 @@ export default function Stepper() {
         <button
           className="stepper__btn"
           onClick={goNext}
-          disabled={isLast}
-          aria-label="Next"
+          disabled={gateActive || (isLast && !gate)}
+          aria-label={gateActive ? "Please wait" : "Next"}
         >
-          Next
+          {gate ? gate.messages[gateStage] : "Next"}
         </button>
       </div>
     </div>

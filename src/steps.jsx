@@ -40,6 +40,10 @@ export const steps = [
   },
   {
     id: "drink-water",
+    gate: {
+      seconds: 14,
+      messages: ["FINISH!!", "EH!? what you mean!?", "Kiddingggg", "Next"],
+    },
     content: (
       <>
         <Clip
