@@ -9,7 +9,7 @@ export const steps = [
     content: (
       <>
         <Dudu />
-        <p className="kicker">hey you 👀</p>
+        <p className="kicker">hey you zhu 👀</p>
         <h1 className="headline">Hello Mindy!</h1>
         <p className="subhead">Swipe right (or tap Next) — I made you something!</p>
       </>
