@@ -1,5 +1,6 @@
 import Clip from "./components/Clip.jsx";
 import Pros from "./components/Pros.jsx";
+import Finale from "./components/Finale.jsx";
 import helloMp4 from "./assets/hi-waving.mp4";
 import helloGif from "./assets/hi-waving.gif";
 import questionMp4 from "./assets/important-question.mp4";
@@ -94,5 +95,11 @@ export const steps = [
         <p className="punchline">没有!!</p>
       </>
     ),
+  },
+  {
+    id: "finale",
+    bare: true,
+    hideControls: true,
+    content: <Finale />,
   },
 ];

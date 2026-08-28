@@ -1,0 +1,106 @@
+.finale {
+  position: relative;
+  overflow: hidden;
+  padding: 46px 26px 42px;
+  border-radius: 30px;
+  text-align: center;
+  background: linear-gradient(160deg, #fff2f7 0%, #ffe1ec 55%, #ffd0e0 100%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 22px 60px -18px rgba(214, 51, 108, 0.5);
+  animation: card-in 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.finale--glow {
+  box-shadow: 0 22px 60px -18px rgba(214, 51, 108, 0.5),
+    0 0 60px rgba(255, 140, 175, 0.4);
+}
+
+.finale__title {
+  font-family: Georgia, "Playfair Display", "Times New Roman", serif;
+  font-size: clamp(1.9rem, 8vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.3;
+  color: #c62a63;
+  margin-bottom: 26px;
+  text-wrap: balance;
+}
+
+.finale__buttons {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 150px;
+}
+
+.finale__yes {
+  border: none;
+  border-radius: 999px;
+  padding: 16px 46px;
+  font: inherit;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+  background: linear-gradient(135deg, #ff5c9e, #ff8fb8);
+  box-shadow: 0 14px 30px -8px rgba(255, 92, 158, 0.85);
+  cursor: pointer;
+  animation: finale-pulse 1.8s ease-in-out infinite;
+}
+
+.finale__yes:active {
+  transform: scale(0.96);
+}
+
+@keyframes finale-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.finale__no {
+  border: 1px solid rgba(198, 42, 99, 0.4);
+  border-radius: 999px;
+  padding: 12px 30px;
+  font: inherit;
+  font-weight: 600;
+  color: #c62a63;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+  touch-action: none;
+}
+
+.finale__big {
+  font-size: clamp(2.4rem, 12vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #c62a63;
+  margin-bottom: 14px;
+}
+
+.finale__sub {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.finale__hint {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: var(--ink);
+  opacity: 0.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .finale__yes {
+    animation: none;
+  }
+}

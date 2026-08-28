@@ -77,9 +77,10 @@ export default function Stepper() {
         </div>
       </div>
 
-      <div className="stepper__controls">
-        {/* hide stepper, commented out */}
-        {/* <div className="stepper__dots" role="tablist" aria-label="Progress">
+      {!step.hideControls && (
+        <div className="stepper__controls">
+          {/* hide stepper, commented out */}
+          {/* <div className="stepper__dots" role="tablist" aria-label="Progress">
           {steps.map((s, i) => (
             <span
               key={s.id}
@@ -88,15 +89,16 @@ export default function Stepper() {
           ))}
         </div> */}
 
-        <button
-          className="stepper__btn"
-          onClick={goNext}
-          disabled={gateActive || (isLast && !gate)}
-          aria-label={gateActive ? "Please wait" : "Next"}
-        >
-          {gate ? gate.messages[gateStage] : "Next"}
-        </button>
-      </div>
+          <button
+            className="stepper__btn"
+            onClick={goNext}
+            disabled={gateActive || (isLast && !gate)}
+            aria-label={gateActive ? "Please wait" : "Next"}
+          >
+            {gate ? gate.messages[gateStage] : "Next"}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
