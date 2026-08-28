@@ -1,0 +1,112 @@
+.stepper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: max(env(safe-area-inset-top), 20px) 22px
+    max(env(safe-area-inset-bottom), 20px);
+  touch-action: pan-y;
+}
+
+.stepper__stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepper__card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--white);
+  border-radius: 28px;
+  padding: 40px 28px;
+  text-align: center;
+  box-shadow: 0 18px 50px -12px rgba(226, 63, 131, 0.45);
+  animation: card-in 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.kicker {
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--pink-accent-dark);
+  margin-bottom: 12px;
+}
+
+.headline {
+  font-size: clamp(2rem, 9vw, 2.8rem);
+  line-height: 1.1;
+  color: var(--pink-accent-dark);
+}
+
+.subhead {
+  margin-top: 16px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.stepper__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 18px;
+}
+
+.stepper__btn {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 26px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--pink-accent);
+  box-shadow: 0 8px 20px -6px rgba(255, 92, 158, 0.7);
+  cursor: pointer;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.stepper__btn:active {
+  transform: scale(0.95);
+}
+
+.stepper__btn--ghost {
+  background: transparent;
+  color: var(--pink-accent-dark);
+  box-shadow: none;
+}
+
+.stepper__btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+  box-shadow: none;
+}
+
+.stepper__dots {
+  display: flex;
+  gap: 8px;
+}
+
+.stepper__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(226, 63, 131, 0.28);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.stepper__dot.is-active {
+  background: var(--pink-accent-dark);
+  transform: scale(1.4);
+}
