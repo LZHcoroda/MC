@@ -44,7 +44,7 @@ export default function Finale() {
         />
         <p className="finale__big">YAY!! 🥳💗</p>
         <p className="finale__sub">
-          you just made me the happiest bear alive 🐻💕
+          HAPPY HAPPY HAPPY
         </p>
       </div>
     );
