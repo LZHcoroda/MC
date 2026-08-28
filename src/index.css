@@ -6,6 +6,10 @@
   --ink: #5a2a44;
   --white: #fffafc;
 
+  /* page backdrop — muted rose, gentle gradient */
+  --page-top: #edd0dc;
+  --page-bottom: #d4a9bf;
+
   font-family: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
@@ -25,7 +29,7 @@ body,
 
 body {
   min-height: 100dvh;
-  background: linear-gradient(160deg, var(--pink-bg) 0%, var(--pink-bg-2) 100%);
+  background: linear-gradient(165deg, var(--page-top) 0%, var(--page-bottom) 100%);
   overscroll-behavior: none;
   -webkit-tap-highlight-color: transparent;
 }
