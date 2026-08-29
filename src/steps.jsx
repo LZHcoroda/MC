@@ -72,7 +72,7 @@ export const steps = [
           gif={convinceGif}
           alt="Dudu the bear crying dramatically in a puddle of tears"
         />
-        <p className="pledge">instead! I will convince you! 💪</p>
+        <p className="pledge">Instead! I will convince you! 💪</p>
       </>
     ),
   },
