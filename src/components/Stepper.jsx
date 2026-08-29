@@ -7,6 +7,12 @@ const SWIPE_THRESHOLD = 60; // px
 export default function Stepper() {
   const [index, setIndex] = useState(0);
   const touchStart = useRef(null);
+  const stageRef = useRef(null);
+
+  // Every step starts scrolled to the top, even if the previous one was scrolled.
+  useEffect(() => {
+    stageRef.current?.scrollTo({ top: 0 });
+  }, [index]);
 
   const step = steps[index];
   const isFirst = index === 0;
@@ -68,7 +74,7 @@ export default function Stepper() {
         </button>
       )}
 
-      <div className="stepper__stage">
+      <div className="stepper__stage" ref={stageRef}>
         <div
           className={step.bare ? "stepper__bare" : "stepper__card"}
           key={step.id}
