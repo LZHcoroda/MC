@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Clip from "./Clip.jsx";
+import HeartBurst from "./HeartBurst.jsx";
 import yesMp4 from "../assets/finale-yes.mp4";
 import yesGif from "../assets/finale-yes.gif";
 import noMp4 from "../assets/finale-no.mp4";
@@ -58,18 +59,19 @@ export default function Finale() {
 
   if (answer === "yes") {
     return (
-      <div className="finale finale--glow">
-        <Clip
-          mp4={yesMp4}
-          gif={yesGif}
-          alt="Dudu and Bubu hugging with hearts"
-          className="finale__clip"
-        />
-        <p className="finale__big">YAY!! 🥳💗</p>
-        <p className="finale__sub">
-          HAPPY HAPPY HAPPY
-        </p>
-      </div>
+      <>
+        <HeartBurst />
+        <div className="finale finale--glow">
+          <Clip
+            mp4={yesMp4}
+            gif={yesGif}
+            alt="Dudu and Bubu hugging with hearts"
+            className="finale__clip"
+          />
+          <p className="finale__big">YAY!! 🥳💗</p>
+          <p className="finale__sub">HAPPY HAPPY HAPPY</p>
+        </div>
+      </>
     );
   }
 

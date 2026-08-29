@@ -1,0 +1,70 @@
+.heartburst {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.heartburst__h {
+  position: absolute;
+  bottom: -12vh;
+  display: block;
+  opacity: 0;
+  filter: drop-shadow(0 5px 9px rgba(200, 30, 90, 0.45));
+  animation-name: heartburst-fly;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+
+.heartburst__h svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* rocket up from the bottom, then bounce around the screen for a while,
+   then fade out */
+@keyframes heartburst-fly {
+  0% {
+    transform: translate(0, 0) rotate(0) scale(0.3);
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  20% {
+    transform: translate(calc(var(--drift) * 0.3), calc(var(--rise) * -1))
+      rotate(calc(var(--rot) * 0.25)) scale(1.05);
+  }
+  36% {
+    transform: translate(calc(var(--drift) * 0.5), calc(var(--rise) * -0.62))
+      rotate(calc(var(--rot) * 0.42)) scale(0.95);
+  }
+  52% {
+    transform: translate(calc(var(--drift) * 0.68), calc(var(--rise) * -0.92))
+      rotate(calc(var(--rot) * 0.58)) scale(1.03);
+  }
+  68% {
+    transform: translate(calc(var(--drift) * 0.82), calc(var(--rise) * -0.5))
+      rotate(calc(var(--rot) * 0.74)) scale(0.96);
+  }
+  84% {
+    transform: translate(var(--drift), calc(var(--rise) * -0.78))
+      rotate(calc(var(--rot) * 0.9)) scale(1);
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(var(--drift) * 1.15), calc(var(--rise) * -0.28))
+      rotate(var(--rot)) scale(0.55);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heartburst {
+    display: none;
+  }
+}
