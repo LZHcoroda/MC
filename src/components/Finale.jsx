@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Clip from "./Clip.jsx";
 import yesMp4 from "../assets/finale-yes.mp4";
 import yesGif from "../assets/finale-yes.gif";
@@ -10,9 +10,20 @@ const NO_LABELS = ["No", "No?", "really??", "you sure??"];
 const DODGES = 3;
 
 export default function Finale() {
+  const [phase, setPhase] = useState("intro"); // "intro" | "ask"
+  const [introLeaving, setIntroLeaving] = useState(false);
   const [answer, setAnswer] = useState(null); // "yes" | "no" | null
   const [dodges, setDodges] = useState(0);
   const [noOffset, setNoOffset] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const leave = setTimeout(() => setIntroLeaving(true), 2400);
+    const done = setTimeout(() => setPhase("ask"), 2850);
+    return () => {
+      clearTimeout(leave);
+      clearTimeout(done);
+    };
+  }, []);
 
   const dodge = () => {
     setNoOffset({
@@ -32,6 +43,18 @@ export default function Finale() {
   const onNoClick = () => {
     if (dodges >= DODGES) setAnswer("no");
   };
+
+  if (phase === "intro") {
+    return (
+      <div
+        key="intro"
+        className={`finale__intro ${introLeaving ? "is-leaving" : ""}`}
+      >
+        <p className="finale__intro-a">And so…</p>
+        <p className="finale__intro-b">Mindy!</p>
+      </div>
+    );
+  }
 
   if (answer === "yes") {
     return (
@@ -68,7 +91,7 @@ export default function Finale() {
   }
 
   return (
-    <div className="finale finale--glow">
+    <div key="ask" className="finale finale--glow">
       <h1 className="finale__title">Will you be my girlfriend?</h1>
       <div className="finale__buttons">
         <button className="finale__yes" onClick={() => setAnswer("yes")}>
