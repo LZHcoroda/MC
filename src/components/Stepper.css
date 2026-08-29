@@ -240,16 +240,37 @@
   box-shadow: 0 10px 30px -12px rgba(90, 30, 60, 0.3),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.55),
     inset 0 -10px 24px -14px rgba(255, 255, 255, 0.25);
+  /* cards cascade in, alternating from the left / right edge.
+     `translate` is animated separately so the resting `rotate` is kept. */
+  animation-duration: 0.55s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
 }
 
 .pros__item:nth-child(odd) {
-  transform: rotate(-1.2deg);
+  rotate: -1.2deg;
+  animation-name: pros-slide-left;
 }
 
 .pros__item:nth-child(even) {
   flex-direction: row-reverse;
   text-align: right;
-  transform: rotate(1.2deg);
+  rotate: 1.2deg;
+  animation-name: pros-slide-right;
+}
+
+@keyframes pros-slide-left {
+  from {
+    opacity: 0;
+    translate: -72px 0;
+  }
+}
+
+@keyframes pros-slide-right {
+  from {
+    opacity: 0;
+    translate: 72px 0;
+  }
 }
 
 .pros__clip {
@@ -323,7 +344,8 @@
 @media (prefers-reduced-motion: reduce) {
   .stepper__card,
   .stepper__bare,
-  .pros__title {
+  .pros__title,
+  .pros__item {
     animation: none;
   }
 }

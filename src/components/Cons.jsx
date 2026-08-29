@@ -22,7 +22,11 @@ export default function Cons() {
       <h1 className="pros__title">CONS</h1>
       <ul className="pros__list">
         {CONS.map((con, i) => (
-          <li className="pros__item" key={i}>
+          <li
+            className="pros__item"
+            key={i}
+            style={{ animationDelay: `${i * 90}ms` }}
+          >
             <Clip
               mp4={con.mp4}
               gif={con.gif}

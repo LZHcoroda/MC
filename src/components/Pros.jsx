@@ -29,8 +29,12 @@ export default function Pros() {
     <div className="pros">
       <h1 className="pros__title">PROs ✨</h1>
       <ul className="pros__list">
-        {PROS.map((p) => (
-          <li className="pros__item" key={p.text}>
+        {PROS.map((p, i) => (
+          <li
+            className="pros__item"
+            key={p.text}
+            style={{ animationDelay: `${i * 90}ms` }}
+          >
             <Clip mp4={p.mp4} gif={p.gif} alt={p.text} className="pros__clip" />
             <p className="pros__text">{p.text}</p>
           </li>
